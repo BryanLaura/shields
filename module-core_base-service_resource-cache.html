@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ShieldsRuntimeError</title>
+    <title>JSDoc: Module: core/base-service/resource-cache</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ShieldsRuntimeError</h1>
+    <h1 class="page-title">Module: core/base-service/resource-cache</h1>
 
     
 
@@ -28,10 +28,6 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature">(abstract) </span></span>
-            <span class="ancestors"><a href="module-core_base-service_errors.html">core/base-service/errors</a>~</span>ShieldsRuntimeError<span class="signature">(props, message)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Base error class</p></div>
         
     
 </header>
@@ -41,17 +37,43 @@
     
         
 
+        
     
-    <h2>Constructor</h2>
-    
-
-    
-    <h4 class="name" id="ShieldsRuntimeError"><span class="type-signature">(abstract) </span>new ShieldsRuntimeError<span class="signature">(props, message)</span><span class="type-signature"></span></h4>
-    
+    </div>
 
     
 
+    
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~getCachedResource"><span class="type-signature">(async, inner) </span>getCachedResource<span class="signature">(attrs)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Make a HTTP request using an in-memory cache</p>
+</div>
 
 
 
@@ -86,13 +108,13 @@
 
         <tr>
             
-                <td class="name"><code>props</code></td>
+                <td class="name"><code>attrs</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="module-core_base-service_errors.html#~RuntimeErrorProps">module:core/base-service/errors~RuntimeErrorProps</a></span>
+<span class="param-type">object</span>
 
 
             
@@ -102,14 +124,37 @@
 
             
 
-            <td class="description last"><p>Refer to individual attrs</p></td>
-        </tr>
+            <td class="description last"><p>Refer to individual attrs</p>
+                <h6>Properties</h6>
+                
 
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
         <tr>
             
-                <td class="name"><code>message</code></td>
+                <td class="name"><code>url</code></td>
             
 
             <td class="type">
@@ -122,10 +167,220 @@
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last"><p>Exception message for debug purposes</p></td>
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>URL to request</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ttl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Number of milliseconds to keep cached value for</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>json</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last"><p>True if we expect to parse the response as JSON</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>scraper</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    buffer => buffer
+                
+                </td>
+            
+
+            <td class="description last"><p>Function to extract value from the response</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last"><p>Options to pass to got</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>requestFetcher</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    fetch
+                
+                </td>
+            
+
+            <td class="description last"><p>Custom fetch function</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -166,7 +421,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_base-service_errors.js.html">core/base-service/errors.js</a>, <a href="core_base-service_errors.js.html#line12">line 12</a>
+        <a href="core_base-service_resource-cache.js.html">core/base-service/resource-cache.js</a>, <a href="core_base-service_resource-cache.js.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -191,178 +446,34 @@
 
 
 
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
+<h5>Returns:</h5>
 
         
-            
-<h4 class="name" id="defaultPrettyMessage"><span class="type-signature">(abstract) </span>defaultPrettyMessage<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    <p>Default message for this exception if none is specified.
-Implementations of ShieldsRuntimeError should implement this method.</p>
+<div class="param-desc">
+    <p>Parsed response</p>
 </div>
 
 
 
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
 
 
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_base-service_errors.js.html">core/base-service/errors.js</a>, <a href="core_base-service_errors.js.html#line30">line 30</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
+    </dd>
 </dl>
 
+    
 
 
 
 
 
         
-            
-<h4 class="name" id="name"><span class="type-signature"></span>name<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    <p>Name of the class. Implementations of ShieldsRuntimeError
-should override this method.</p>
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="core_base-service_errors.js.html">core/base-service/errors.js</a>, <a href="core_base-service_errors.js.html#line19">line 19</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
     
 
     
